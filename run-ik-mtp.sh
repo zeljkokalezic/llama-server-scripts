@@ -25,7 +25,7 @@
   -sas \
   -np 1 \
   --reasoning on --chat-template-kwargs '{"preserve_thinking":true}' --reasoning-budget 8192 \
-  --ctx-checkpoints 4 --ctx-checkpoints-interval 16384 --cache-ram 16384 --cache-ram-similarity 0.8 \
+  --ctx-checkpoints 4 --ctx-checkpoints-interval 16384 --cache-ram 16384 --cache-ram-similarity 0.9 --slot-prompt-similarity 0.9 \
   -t 24 -tb 24 \
   -b 1024 -ub 1024
 
