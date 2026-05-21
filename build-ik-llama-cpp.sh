@@ -3,8 +3,7 @@
 # Usage: bash ~/Desktop/build-ik-llama-cpp.sh
 
 set -e
-cd /home/zeljko/Desktop/ik_llama.cpp
-rm -rf build && mkdir build
+cd /home/zeljko/Desktop/ik_llama.cpp && rm -rf build
 cmake -S . -B build \
   -DGGML_CUDA=ON \
   -DGGML_CUDA_NCCL=ON \
