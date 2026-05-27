@@ -14,19 +14,25 @@
   --host 0.0.0.0 --port 8080 \
   --split-mode graph --tensor-split 5,2 --main-gpu 0 \
   --cache-type-k q8_0 --k-cache-hadamard --cache-type-v q6_0 --cache-type-v-last q8_0,8 --v-cache-hadamard \
-  --ctx-size 150000 \
+  --ctx-size 200000 \
   --flash-attn on --merge-qkv --merge-up-gate-experts \
   --jinja --parallel-tool-calls \
   --temp 0.6 --top-p 0.95 --top-k 20 --min-p 0.0 --presence-penalty 0.0 --repeat-penalty 1.0 \
   -ngl 999 \
-  -mtp --draft-max 15 -mtprot iq4_ks \
+  -mtp --draft-max 14 --spec-autotune -mtprot iq4_ks \
   -smf16 \
   -grt f16 \
   -sas \
   -np 1 \
-  --reasoning on --chat-template-kwargs '{"preserve_thinking":true}' --reasoning-budget 8192 \
-  --ctx-checkpoints 4 --ctx-checkpoints-interval 16384 --cache-ram 4096 --cache-ram-n-min 16384 --keep 16384 \
+  --reasoning on  --reasoning-budget 8192 \
+  --cache-ram-n-min 20480 --cache-ram-reuse-n-min 20480 \
+  --cache-ram 16384  \
+  --ctx-checkpoints 64 \
+  --ctx-checkpoints-interval 8192 \
+  --ctx-checkpoints-tolerance 4096 \
   -t 24 -tb 24 \
   -b 1024 -ub 1024
+  
+  # --chat-template-kwargs '{"preserve_thinking":true}' --reasoning-budget 8192 --cache-ram-keep-on-load
 
 
